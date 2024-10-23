@@ -1,0 +1,20 @@
+{
+    "manifest_version": 3,
+    "name": "Extensão de Login Automático no SGP",
+    "version": "1.0",
+    "permissions": [
+        "tabs",
+        "scripting",
+        "activeTab",
+        "storage"
+    ],
+    "background": {
+        "service_worker": "background.js"
+    },
+    "action": {
+        "default_popup": "popup.html"
+    },
+    "host_permissions": [
+        "https://seu-erp-sgp.com/*"
+    ]
+}
