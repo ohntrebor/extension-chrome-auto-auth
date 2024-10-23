@@ -1,27 +1,37 @@
 (function () {
   // Mock de credenciais para teste
-  const erpUsername = "usuarioMock";
-  const erpPassword = "senhaMock";
-
+  const erpUsername = "7az";
+  const erpPassword = "Rblink123*";
+  const erpType = "SGP";
   // Aguardar a página de login carregar completamente
   setTimeout(() => {
-    // Verificar se estamos na página de login
+    // Verificar se estamos na página de login correta
     if (window.location.href.includes("/accounts/login")) {
-      // Preenche os campos de login (verifique se os IDs estão corretos)
-      document.getElementById("id_username").value = erpUsername;
-      document.getElementById("id_password").value = erpPassword;
+      const usernameField = document.getElementById("id_username");
+      const passwordField = document.getElementById("inlineFormInputGroup");
+      const loginButton = document.getElementById("entrar");
 
-      // Submete o formulário de login (verifique o ID do botão de login)
-      document.getElementById("entrar").click();
+      if (usernameField && passwordField && loginButton) {
+        // Preenche os campos de login após 1 segundo
+        setTimeout(() => {
+          usernameField.value = erpUsername;
+          passwordField.value = erpPassword;
 
-      // Verificar se o login foi bem-sucedido ou falhou
-      setTimeout(() => {
-        if (document.getElementById("entrar")) {
-          console.error("Erro: Dados de autenticação inválidos.");
-        } else {
-          console.log("Autenticação realizada com sucesso!");
-        }
-      }, 5000); // Aguarda 5 segundos para a resposta do servidor
+          // Submete o formulário de login clicando no botão de login
+          loginButton.click();
+
+          // Verificar se o login foi bem-sucedido ou falhou
+          setTimeout(() => {
+            if (document.getElementById("entrar")) {
+              console.error("Erro: Dados de autenticação inválidos.");
+            } else {
+              console.log("Autenticação realizada com sucesso!");
+            }
+          }, 5000); // Aguarda 5 segundos para a resposta do servidor
+        }, 1000); // Aguardar 1 segundo para preencher os campos
+      } else {
+        console.error("Campos de login não encontrados.");
+      }
     }
-  }, 3000); // Aguarda 3 segundos para a página carregar
+  }, 2000); // Aguarda 3 segundos para garantir que a página de login está completamente carregada
 })();
