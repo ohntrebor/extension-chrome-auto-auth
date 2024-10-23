@@ -9,12 +9,12 @@
         "storage"
     ],
     "background": {
-        "service_worker": "background.js"
+        "service_worker": "src/background.js"
     },
     "action": {
-        "default_popup": "popup.html"
+        "default_popup": "src/popup.html"
     },
     "host_permissions": [
-        "https://seu-erp-sgp.com/*"
+        "https://rblink.sgp.tsmx.com.br/*"
     ]
 }

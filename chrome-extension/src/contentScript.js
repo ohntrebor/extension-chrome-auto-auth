@@ -7,11 +7,11 @@
   setTimeout(() => {
     // Verificar se estamos na página de login
     if (window.location.href.includes("/accounts/login")) {
-      // Preenche os campos de login
+      // Preenche os campos de login (verifique se os IDs estão corretos)
       document.getElementById("id_username").value = erpUsername;
       document.getElementById("id_password").value = erpPassword;
 
-      // Submete o formulário de login
+      // Submete o formulário de login (verifique o ID do botão de login)
       document.getElementById("entrar").click();
 
       // Verificar se o login foi bem-sucedido ou falhou
